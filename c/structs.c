@@ -1,5 +1,14 @@
 #include <stdio.h>
 
+
+/*
+ En c se deben definir las funciones a utilizar si se desea poder hacer los llamados
+ de las mismas en cualquier parte del archivo, de lo contrario el compilador producira un error si la funcino
+ se llama primero y luego es escribe el cuerpo de la funcion, esto producira el error, pero si se crea el cuerpo
+ y luego se llama no habra ningun problema, por ello la forma de solucionar este inconveniente es realizar la
+ definicion de la funcion al principio del archivo fuente.
+*/
+
 void structObjectFunc(void);
 void structPointerFunc(void);
 
@@ -8,6 +17,8 @@ int main(void){
     structPointerFunc();
 
 }
+
+
 
 
 void structObjectFunc(){
@@ -23,6 +34,11 @@ void structObjectFunc(){
 
 }
 
+
+/*
+  El uso de el operador -> solo es posible cuando una estructura es usada como un puntero
+  de lo contrario el compilador dara un error, ya que no es una valido.
+*/
 
 void structPointerFunc(){
     struct object {
