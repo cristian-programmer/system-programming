@@ -1,3 +1,5 @@
+#include "queue.h"
+
 void initializate(struct queue *queue){
     queue->count = 0;
     queue->front = NULL;
