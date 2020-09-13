@@ -15,9 +15,9 @@ void push(struct list **head, void *data, size_t data_size){
 
 	int i;
  	for(i=0; i < data_size; i++){
-		*(char *)(node->data + i) = *(char *)(data + 1);
-		(*head) = node;
+		*(char *)(node->data + i) = *(char *)(data + i);
 	}
+	(*head) = node;
 }
 
 

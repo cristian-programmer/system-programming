@@ -10,6 +10,7 @@ int main(void){
 		push(&node, &arr[i], size);
 	}
 	printList(node, printInt);
+	assert(*(int *)(node->data) == 10);
 
 }
 
