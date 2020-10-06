@@ -10,7 +10,7 @@ lenguajes de programacion usados para crear sistemas como son los siguientes:
 
 Para el aprendizaje de bajo nivel se utilizara:
 
-* Asambler for (x16, X86_64, Intel, AMD, ARM, RISCV etc)
+* Asambler for (16, X86_64, Intel, AMD, ARM, RISCV etc)
 
 La razon para llevar este tipo de aprendizaje es para desarrollar software que se
 comunica directamente con el hardware como sistemas operativos, compiladores
