@@ -13,7 +13,9 @@ typedef struct node list;
 void insertAtBeginning(list **head, int value); 
 void insertAtEnd(list **head, int value);
 void printList(list *head);
-void printListBackwards(list *head);
+void printListBackwards(list *head); 
+void freeList(list *head);
+
 
 int main(void){
     list *head = NULL;
@@ -69,4 +71,31 @@ void insertAtBeginning(list **head, int value){
     }
 }
 
+void insertAtEnd(list **head, int value){
+    list *newNode;
+    if(head == NULL){
+        return ;
+    }
 
+    newNode = malloc(sizeof(list));
+    newNode->next = NULL;
+    newNode->prev = NULL;
+    newNode->data =  value;
+
+    if(*head == NULL) {
+        *head = newNode;
+    }else {
+        list *temp = head;
+        while(temp->next != NULL) temp = temp->next;
+        temp->next = newNode;
+        newNode->prev = temp;
+    }
+}
+
+void freeList(list *node) {
+    while(node != NULL){
+        list *current = node->next;
+        free(node);
+        node = current;
+    }
+}
