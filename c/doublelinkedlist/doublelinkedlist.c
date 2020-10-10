@@ -19,10 +19,18 @@ void freeList(list *head);
 
 int main(void){
     list *head = NULL;
+    list *head2 = NULL;
     insertAtBeginning(&head, 10);
-    insertAtBeginning(&head, 5);  
+    insertAtBeginning(&head, 5);
     printListBackwards(head);
-    printList(head);  
+    printf("\n");
+    insertAtEnd(&head2, 15);
+    insertAtEnd(&head2, 10);
+    insertAtEnd(&head2, 5);
+    printList(head2);
+
+    freeList(head);
+    freeList(head2);  
     return 0;
 }
 
@@ -85,7 +93,7 @@ void insertAtEnd(list **head, int value){
     if(*head == NULL) {
         *head = newNode;
     }else {
-        list *temp = head;
+        list *temp = *head;
         while(temp->next != NULL) temp = temp->next;
         temp->next = newNode;
         newNode->prev = temp;
