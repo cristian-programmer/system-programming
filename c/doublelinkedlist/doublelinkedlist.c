@@ -1,6 +1,6 @@
 #include <stdlib.h>
 #include <stdio.h>
-
+#include <stdbool.h>
 
 struct node {
     int data;
@@ -20,6 +20,7 @@ void freeList(list *head);
 int main(void){
     list *head = NULL;
     list *head2 = NULL;
+    printf("\n");
     insertAtBeginning(&head, 10);
     insertAtBeginning(&head, 5);
     printListBackwards(head);
