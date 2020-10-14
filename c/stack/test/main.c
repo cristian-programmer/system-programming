@@ -3,7 +3,10 @@
 
 int main(void){
 	struct node *top = NULL;
-	push(&top, 10);
-	push(&top, 12);
+	struct tree *root = NULL;
+	
+	insertNode(&root, 15);
+	push(&top, root);
 	peek(top);
+	
 }
