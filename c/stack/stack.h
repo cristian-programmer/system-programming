@@ -41,6 +41,11 @@ void peek(struct node *top){
 	}
 }
 
+struct tree *getPeek(struct node *top){
+	if(!isEmpty(top))
+		return top->link;
+}
+
 
 struct tree *pop(struct node **top){
 	struct tree *value = NULL; 
