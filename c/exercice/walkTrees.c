@@ -7,7 +7,7 @@ void inOderNoRecursive(struct tree *root){
     
     while(sw == 0){
         while(temp != NULL){
-            push(&top, temp);
+        push(&top, temp);
             temp = temp->left;
         }
 
@@ -15,14 +15,13 @@ void inOderNoRecursive(struct tree *root){
             sw = 1;
         }else {
             temp  = pop(&top);
-            printf("%i here \n", temp->index);
+            printf("%i ", temp->index);
             temp = temp->right;
         }
     }
 }
 
 void preOderNoRecursive(struct tree *root){
-    
     bool sw = 0;
     struct node *top = NULL;
     
@@ -42,7 +41,7 @@ void preOderNoRecursive(struct tree *root){
     }
 }
 
-void inOrderOptional(struct tree *root){
+void inOrder(struct tree *root){
     struct tree *current = root;
     bool sw = false;
     struct node *top = NULL;
@@ -54,7 +53,7 @@ void inOrderOptional(struct tree *root){
         }else {
             if(!isEmpty(top)){
                 current =  pop(&top);
-                printf("%i --->", current->index);
+                printf("%i", current->index);
                 current = current->right;
             }else {
                 sw = true;
@@ -63,38 +62,47 @@ void inOrderOptional(struct tree *root){
     }
 }
 
+void postOrderNoRecursive(struct tree *root){
+    if(root == NULL)
+        return;
+    
+    struct node *top = NULL;
+    do {
+        while(root){
+            if(root->right)
+                push(&top, root->right);
+            
+            push(&top, root);
+            root = root->left; 
+        }
+        root = pop(&top);
+        if(root->right && getPeek(top) == root->right){
+            pop(&top);
+            push(&top, root);
+            root = root->right;
+        }else {
+            printf("%i ",root->index);
+            root = NULL;
+        }
+    } while(!isEmpty(top));
+}
+
 int main(){
 
     struct tree *node = NULL;
-   // struct node *top =  NULL;
     insertNode(&node, 10);
-    //push(&top, node);
-   // pop(&top);    
     insertNode(&node, 11);
-    //push(&top, node->right);
     insertNode(&node, 6);
-    //push(&top, node->left);
+    insertNode(&node, 24);
+    insertNode(&node, 5);
 
-    
-    //pop(&top);
-   // pop(&top);
-    //inOrder(node);
     inOderNoRecursive(node);
+    printf("\n");
     printf("--------------\n");
     preOderNoRecursive(node);
-    //viewPosOrder(node);
-    
-    //printf("--------------\n");
+    printf("\n");
+    printf("--------------\n");
+    postOrderNoRecursive(node);
 
-  /* 
-    push(&top, 4);
-    push(&top, 10);
-    push(&top, 5);
-    
-    pop(&top);
-    pop(&top);
-    pop(&top);
-    printf("is %i", isEmpty(top));
-    */
     return 0;
 }
