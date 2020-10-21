@@ -95,14 +95,16 @@ int main(){
     insertNode(&node, 6);
     insertNode(&node, 24);
     insertNode(&node, 5);
-
+    printf("Inorden \n");
     inOderNoRecursive(node);
     printf("\n");
     printf("--------------\n");
+    printf("Preorden \n");
     preOderNoRecursive(node);
     printf("\n");
     printf("--------------\n");
+    printf("Postorden \n");
     postOrderNoRecursive(node);
-
+    printf("\n");
     return 0;
 }

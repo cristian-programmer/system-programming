@@ -18,11 +18,7 @@ bool isEmpty(struct node *top){
 void push(struct node **top, struct tree *value){
 	struct node* new_node = malloc(sizeof(struct node));
 	new_node->next = *top;
-	new_node->link = value; //malloc(sizeof(struct tree)); 
-	/*(new_node->link)->index = value->index;
-	(new_node->link)->left = value->left;
-	(new_node->link)->right = value->right;*/
-
+	new_node->link = value; 
 	*top = new_node;
 }
 
